@@ -7793,8 +7793,119 @@ a.anchor-link {
     white-space: normal;
   }
 </style>
+<style>
+    :root {
+        --bg-color: #0d1117;
+        --neon-cyan: #00f3ff;
+        --neon-magenta: #ff00ff;
+        --neon-lime: #39ff14;
+        --text-color: #e6edf3;
+        --card-bg: #161b22;
+        --jp-layout-color0: #0d1117 !important;
+        --jp-layout-color1: #0d1117 !important;
+        --jp-ui-font-color1: #e6edf3 !important;
+        --jp-content-font-color1: #e6edf3 !important;
+    }
+    
+    body {
+        background-color: var(--bg-color) !important;
+        color: var(--text-color) !important;
+        overflow-x: hidden;
+    }
+
+    /* Efecto de Scanline (Retro Cyberpunk) */
+    body::before {
+        content: " ";
+        display: block;
+        position: fixed;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 9999;
+        background-size: 100% 4px, 3px 100%;
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+    /* Animación de entrada para las celdas de Jupyter */
+    .jp-Cell {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.6s ease-out forwards;
+        border-left: 2px solid transparent;
+        transition: border-color 0.4s;
+        margin-bottom: 15px !important;
+    }
+
+    .jp-Cell:hover {
+        border-left-color: var(--neon-magenta);
+    }
+
+    @keyframes slideUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tarjetas con Pulso Neon */
+    .neon-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--neon-cyan);
+        box-shadow: 0 0 10px var(--neon-cyan);
+        padding: 25px;
+        border-radius: 12px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+        animation: borderPulse 4s infinite alternate;
+    }
+
+    @keyframes borderPulse {
+        from { box-shadow: 0 0 5px var(--neon-cyan); }
+        to { box-shadow: 0 0 20px var(--neon-cyan), 0 0 10px var(--neon-magenta); }
+    }
+
+    /* Efecto de Brillo (Shimmer) que recorre las tarjetas */
+    .neon-card::after {
+        content: "";
+        position: absolute;
+        top: -50%; left: -50%;
+        width: 200%; height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+        transform: rotate(45deg);
+        animation: shimmer 6s infinite;
+    }
+
+    @keyframes shimmer {
+        0% { transform: translateX(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) rotate(45deg); }
+    }
+
+    .neon-title {
+        color: var(--neon-cyan);
+        text-shadow: 0 0 8px var(--neon-cyan);
+        font-family: 'Orbitron', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .neon-metric {
+        font-size: 2.5em;
+        color: var(--neon-lime);
+        text-shadow: 0 0 10px var(--neon-lime);
+        font-weight: bold;
+    }
+
+    /* Scrollbar Neon */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0d1117; }
+    ::-webkit-scrollbar-thumb { 
+        background: var(--neon-cyan); 
+        border-radius: 5px;
+        box-shadow: 0 0 5px var(--neon-cyan);
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--neon-magenta); }
+</style>
 <!-- End of mermaid configuration --></head>
-<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+<body class="jp-Notebook" data-jp-theme-light="false" data-jp-theme-name="JupyterLab Dark">
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -13671,6 +13782,89 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 </div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+        
+        .papiweb-container {
+            padding: 50px 0;
+            text-align: center;
+            background: #000;
+            perspective: 1000px;
+        }
+        
+        .papiweb-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4em;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            
+            /* Efecto Metalizado */
+            background: linear-gradient(
+                to bottom,
+                #ffffff 0%,
+                #e1e1e1 20%,
+                #7a7a7a 50%,
+                #d1d1d1 80%,
+                #ffffff 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Efecto 3D */
+            text-shadow: 
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+            
+            display: inline-block;
+            transform: rotateX(20deg);
+            animation: metalShine 3s linear infinite, floatText 4s ease-in-out infinite;
+        }
+        
+        .papiweb-sub {
+            color: #00f3ff;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            letter-spacing: 10px;
+            text-shadow: 0 0 10px #00f3ff;
+            margin-top: -10px;
+            animation: pulseNeon 2s infinite alternate;
+        }
+
+        /* Animación de la luz dinámica sobre el metal */
+        @keyframes metalShine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        /* Animación de flotación 3D */
+        @keyframes floatText {
+            0%, 100% { transform: rotateX(20deg) translateY(0); }
+            50% { transform: rotateX(25deg) translateY(-15px); }
+        }
+        
+        @keyframes pulseNeon {
+            from { opacity: 0.5; text-shadow: 0 0 5px #00f3ff; }
+            to { opacity: 1; text-shadow: 0 0 20px #00f3ff; }
+        }
+    </style>
+    
+    <div class="papiweb-container">
+        <div class="papiweb-text">PAPIWEB</div><br>
+        <div class="papiweb-sub">Desarrollos Informáticos</div>
+    </div>
 </main>
 </body>
 </html>
