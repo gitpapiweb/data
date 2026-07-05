@@ -13246,97 +13246,11 @@ Nulos en Ventas: 0
 Duplicados en Ventas: 0
 
 ⚠️ Corrigiendo 47 campañas con fechas invertidas...
+
+✅ ¡Limpieza y corrección de fechas completada!
 </pre>
 </div>
 </div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/ops/array_ops.py</span> in <span class="ansi-cyan-fg">_na_arithmetic_op</span><span class="ansi-blue-fg">(left, right, op, is_cmp)</span>
-<span class="ansi-green-intense-fg ansi-bold">    217</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 218</span><span class="ansi-red-fg">         </span>result <span class="ansi-blue-fg">=</span> func<span class="ansi-blue-fg">(</span>left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    219</span>     <span class="ansi-green-fg">except</span> TypeError<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/computation/expressions.py</span> in <span class="ansi-cyan-fg">evaluate</span><span class="ansi-blue-fg">(op, a, b, use_numexpr)</span>
-<span class="ansi-green-intense-fg ansi-bold">    241</span>             <span class="ansi-red-fg"># error: "None" not callable</span>
-<span class="ansi-green-fg">--&gt; 242</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> _evaluate<span class="ansi-blue-fg">(</span>op<span class="ansi-blue-fg">,</span> op_str<span class="ansi-blue-fg">,</span> a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># type: ignore[misc]</span>
-<span class="ansi-green-intense-fg ansi-bold">    243</span>     <span class="ansi-green-fg">return</span> _evaluate_standard<span class="ansi-blue-fg">(</span>op<span class="ansi-blue-fg">,</span> op_str<span class="ansi-blue-fg">,</span> a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/computation/expressions.py</span> in <span class="ansi-cyan-fg">_evaluate_numexpr</span><span class="ansi-blue-fg">(op, op_str, a, b)</span>
-<span class="ansi-green-intense-fg ansi-bold">    130</span>     <span class="ansi-green-fg">if</span> result <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 131</span><span class="ansi-red-fg">         </span>result <span class="ansi-blue-fg">=</span> _evaluate_standard<span class="ansi-blue-fg">(</span>op<span class="ansi-blue-fg">,</span> op_str<span class="ansi-blue-fg">,</span> a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    132</span> 
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/computation/expressions.py</span> in <span class="ansi-cyan-fg">_evaluate_standard</span><span class="ansi-blue-fg">(op, op_str, a, b)</span>
-<span class="ansi-green-intense-fg ansi-bold">     72</span>         _store_test_result<span class="ansi-blue-fg">(</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 73</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> op<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     74</span> 
-
-<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for -: 'str' and 'str'
-
-During handling of the above exception, another exception occurred:
-
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9123/68180542.py</span> in <span class="ansi-cyan-fg">&lt;cell line: 0&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span>     df_mar_pp<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">[</span>mask<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'fecha_inicio'</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">'fecha_fin'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> df_mar_pp<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">[</span>mask<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'fecha_fin'</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">'fecha_inicio'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>values
-<span class="ansi-green-intense-fg ansi-bold">     13</span>     <span class="ansi-red-fg"># Recalculamos duración</span>
-<span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg">     </span>df_mar_pp<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'duracion'</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> df_mar_pp<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'fecha_fin'</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">-</span> df_mar_pp<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'fecha_inicio'</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> 
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-red-fg"># 3. Validación de Merges</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/ops/common.py</span> in <span class="ansi-cyan-fg">new_method</span><span class="ansi-blue-fg">(self, other)</span>
-<span class="ansi-green-intense-fg ansi-bold">     74</span>         other <span class="ansi-blue-fg">=</span> item_from_zerodim<span class="ansi-blue-fg">(</span>other<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     75</span> 
-<span class="ansi-green-fg">---&gt; 76</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> method<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> other<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     77</span> 
-<span class="ansi-green-intense-fg ansi-bold">     78</span>     <span class="ansi-green-fg">return</span> new_method
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/arraylike.py</span> in <span class="ansi-cyan-fg">__sub__</span><span class="ansi-blue-fg">(self, other)</span>
-<span class="ansi-green-intense-fg ansi-bold">    192</span>     <span class="ansi-blue-fg">@</span>unpack_zerodim_and_defer<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"__sub__"</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    193</span>     <span class="ansi-green-fg">def</span> __sub__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> other<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 194</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_arith_method<span class="ansi-blue-fg">(</span>other<span class="ansi-blue-fg">,</span> operator<span class="ansi-blue-fg">.</span>sub<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    195</span> 
-<span class="ansi-green-intense-fg ansi-bold">    196</span>     <span class="ansi-blue-fg">@</span>unpack_zerodim_and_defer<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"__rsub__"</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/series.py</span> in <span class="ansi-cyan-fg">_arith_method</span><span class="ansi-blue-fg">(self, other, op)</span>
-<span class="ansi-green-intense-fg ansi-bold">   6133</span>     <span class="ansi-green-fg">def</span> _arith_method<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> other<span class="ansi-blue-fg">,</span> op<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   6134</span>         self<span class="ansi-blue-fg">,</span> other <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_align_for_op<span class="ansi-blue-fg">(</span>other<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">-&gt; 6135</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> base<span class="ansi-blue-fg">.</span>IndexOpsMixin<span class="ansi-blue-fg">.</span>_arith_method<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> other<span class="ansi-blue-fg">,</span> op<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   6136</span> 
-<span class="ansi-green-intense-fg ansi-bold">   6137</span>     <span class="ansi-green-fg">def</span> _align_for_op<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">,</span> align_asobject<span class="ansi-blue-fg">:</span> bool <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/base.py</span> in <span class="ansi-cyan-fg">_arith_method</span><span class="ansi-blue-fg">(self, other, op)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1380</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1381</span>         <span class="ansi-green-fg">with</span> np<span class="ansi-blue-fg">.</span>errstate<span class="ansi-blue-fg">(</span>all<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">"ignore"</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1382</span><span class="ansi-red-fg">             </span>result <span class="ansi-blue-fg">=</span> ops<span class="ansi-blue-fg">.</span>arithmetic_op<span class="ansi-blue-fg">(</span>lvalues<span class="ansi-blue-fg">,</span> rvalues<span class="ansi-blue-fg">,</span> op<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1383</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1384</span>         <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_construct_result<span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">=</span>res_name<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/ops/array_ops.py</span> in <span class="ansi-cyan-fg">arithmetic_op</span><span class="ansi-blue-fg">(left, right, op)</span>
-<span class="ansi-green-intense-fg ansi-bold">    281</span>         <span class="ansi-red-fg"># error: Argument 1 to "_na_arithmetic_op" has incompatible type</span>
-<span class="ansi-green-intense-fg ansi-bold">    282</span>         <span class="ansi-red-fg"># "Union[ExtensionArray, ndarray[Any, Any]]"; expected "ndarray[Any, Any]"</span>
-<span class="ansi-green-fg">--&gt; 283</span><span class="ansi-red-fg">         </span>res_values <span class="ansi-blue-fg">=</span> _na_arithmetic_op<span class="ansi-blue-fg">(</span>left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">,</span> op<span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># type: ignore[arg-type]</span>
-<span class="ansi-green-intense-fg ansi-bold">    284</span> 
-<span class="ansi-green-intense-fg ansi-bold">    285</span>     <span class="ansi-green-fg">return</span> res_values
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/ops/array_ops.py</span> in <span class="ansi-cyan-fg">_na_arithmetic_op</span><span class="ansi-blue-fg">(left, right, op, is_cmp)</span>
-<span class="ansi-green-intense-fg ansi-bold">    225</span>             <span class="ansi-red-fg"># Don't do this for comparisons, as that will handle complex numbers</span>
-<span class="ansi-green-intense-fg ansi-bold">    226</span>             <span class="ansi-red-fg">#  incorrectly, see GH#32047</span>
-<span class="ansi-green-fg">--&gt; 227</span><span class="ansi-red-fg">             </span>result <span class="ansi-blue-fg">=</span> _masked_arith_op<span class="ansi-blue-fg">(</span>left<span class="ansi-blue-fg">,</span> right<span class="ansi-blue-fg">,</span> op<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    228</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    229</span>             <span class="ansi-green-fg">raise</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.12/dist-packages/pandas/core/ops/array_ops.py</span> in <span class="ansi-cyan-fg">_masked_arith_op</span><span class="ansi-blue-fg">(x, y, op)</span>
-<span class="ansi-green-intense-fg ansi-bold">    161</span>         <span class="ansi-red-fg"># See GH#5284, GH#5035, GH#19448 for historical reference</span>
-<span class="ansi-green-intense-fg ansi-bold">    162</span>         <span class="ansi-green-fg">if</span> mask<span class="ansi-blue-fg">.</span>any<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 163</span><span class="ansi-red-fg">             </span>result<span class="ansi-blue-fg">[</span>mask<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> op<span class="ansi-blue-fg">(</span>xrav<span class="ansi-blue-fg">[</span>mask<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> yrav<span class="ansi-blue-fg">[</span>mask<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    164</span> 
-<span class="ansi-green-intense-fg ansi-bold">    165</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for -: 'str' and 'str'</pre>
 </div>
 </div>
 </div>
