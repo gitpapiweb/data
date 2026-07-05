@@ -7801,40 +7801,35 @@ a.anchor-link {
         --neon-lime: #39ff14;
         --text-color: #e6edf3;
         --card-bg: #161b22;
-        --jp-layout-color0: #0d1117 !important;
-        --jp-layout-color1: #0d1117 !important;
-        --jp-ui-font-color1: #e6edf3 !important;
-        --jp-content-font-color1: #e6edf3 !important;
     }
     
-    body {
-        background-color: var(--bg-color) !important;
-        color: var(--text-color) !important;
+    body.jp-Notebook {
+        background-color: var(--bg-color);
+        color: var(--text-color);
         overflow-x: hidden;
     }
 
-    /* Efecto de Scanline (Retro Cyberpunk) */
+    /* Efecto de Scanline (Retro Cyberpunk) - Menos intrusivo */
     body::before {
         content: " ";
         display: block;
         position: fixed;
         top: 0; left: 0; bottom: 0; right: 0;
-        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                    linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
         z-index: 9999;
         background-size: 100% 4px, 3px 100%;
         pointer-events: none;
-        opacity: 0.3;
+        opacity: 0.2;
     }
 
-    /* Animación de entrada para las celdas de Jupyter */
+    /* Animación de entrada para las celdas de Jupyter - sutil */
     .jp-Cell {
         opacity: 0;
-        transform: translateY(20px);
-        animation: slideUp 0.6s ease-out forwards;
+        transform: translateY(10px);
+        animation: slideUp 0.4s ease-out forwards;
         border-left: 2px solid transparent;
-        transition: border-color 0.4s;
-        margin-bottom: 15px !important;
+        transition: border-color 0.3s;
     }
 
     .jp-Cell:hover {
@@ -7845,14 +7840,14 @@ a.anchor-link {
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Tarjetas con Pulso Neon */
+    /* Tarjetas con Pulso Neon - menos agresivo */
     .neon-card {
         background-color: var(--card-bg);
         border: 1px solid var(--neon-cyan);
-        box-shadow: 0 0 10px var(--neon-cyan);
-        padding: 25px;
-        border-radius: 12px;
-        margin: 20px 0;
+        box-shadow: 0 0 5px var(--neon-cyan);
+        padding: 20px;
+        border-radius: 8px;
+        margin: 15px 0;
         position: relative;
         overflow: hidden;
         animation: borderPulse 4s infinite alternate;
@@ -7860,49 +7855,16 @@ a.anchor-link {
 
     @keyframes borderPulse {
         from { box-shadow: 0 0 5px var(--neon-cyan); }
-        to { box-shadow: 0 0 20px var(--neon-cyan), 0 0 10px var(--neon-magenta); }
-    }
-
-    /* Efecto de Brillo (Shimmer) que recorre las tarjetas */
-    .neon-card::after {
-        content: "";
-        position: absolute;
-        top: -50%; left: -50%;
-        width: 200%; height: 200%;
-        background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.1), transparent);
-        transform: rotate(45deg);
-        animation: shimmer 6s infinite;
-    }
-
-    @keyframes shimmer {
-        0% { transform: translateX(-100%) rotate(45deg); }
-        100% { transform: translateX(100%) rotate(45deg); }
+        to { box-shadow: 0 0 15px var(--neon-cyan); }
     }
 
     .neon-title {
         color: var(--neon-cyan);
-        text-shadow: 0 0 8px var(--neon-cyan);
+        text-shadow: 0 0 4px var(--neon-cyan);
         font-family: 'Orbitron', sans-serif;
         text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
     }
-
-    .neon-metric {
-        font-size: 2.5em;
-        color: var(--neon-lime);
-        text-shadow: 0 0 10px var(--neon-lime);
-        font-weight: bold;
-    }
-
-    /* Scrollbar Neon */
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #0d1117; }
-    ::-webkit-scrollbar-thumb { 
-        background: var(--neon-cyan); 
-        border-radius: 5px;
-        box-shadow: 0 0 5px var(--neon-cyan);
-    }
-    ::-webkit-scrollbar-thumb:hover { background: var(--neon-magenta); }
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="false" data-jp-theme-name="JupyterLab Dark">
