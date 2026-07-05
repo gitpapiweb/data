@@ -5,6 +5,77 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Baez_Edgardo_Anselmo_Comisión_2026_TPI_Data_Analytics</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
+    /* Definición de temas */
+    :root {
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --card-bg: rgba(255, 255, 255, 0.8);
+        --card-border: rgba(0, 0, 0, 0.1);
+        --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        --header-color: #111;
+        --header-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    
+    body.dark-theme {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --card-bg: rgba(26, 26, 26, 0.8);
+        --card-border: rgba(255, 255, 255, 0.1);
+        --card-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(255, 0, 255, 0.2);
+        --header-color: #fff;
+        --header-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 0, 255, 0.3);
+    }
+
+    body {
+        background-color: var(--bg-color) !important;
+        color: var(--text-color) !important;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Aplicación de temas a componentes existentes */
+    .papiweb-branding {
+        background: var(--card-bg) !important;
+        border: 1px solid var(--card-border) !important;
+        box-shadow: var(--card-shadow) !important;
+    }
+
+    .dataframe {
+        background: var(--card-bg) !important;
+        border: 1px solid var(--card-border) !important;
+        box-shadow: var(--card-shadow) !important;
+        color: var(--text-color) !important;
+    }
+    
+    h1, h2, h3 {
+        color: var(--header-color) !important;
+        text-shadow: var(--header-shadow) !important;
+    }
+
+    /* Botón de cambio de tema */
+    #theme-toggle {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 10000;
+        padding: 10px;
+        cursor: pointer;
+        background: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+
+<button id="theme-toggle">Cambiar Tema</button>
+
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+    });
+</script>
+
+<style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
