@@ -13686,48 +13686,64 @@ During handling of the above exception, another exception occurred:
 </div>
 </main>
 <style>
-    /* Estilos para el efecto 3D Metálico */
-    .papiweb-branding {
+    .papiweb-container {
+        perspective: 1000px;
+        padding: 50px 0;
         text-align: center;
-        padding: 30px;
+    }
+
+    .papiweb-card {
+        display: inline-block;
+        transform-style: preserve-3d;
+        transition: transform 0.5s ease;
+    }
+
+    .papiweb-branding {
+        padding: 40px;
         background: linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #1a1a1a 100%);
         color: #e0e0e0;
-        font-family: sans-serif; /* Fallback si no está Orbitron */
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        font-size: 24px;
-        /* Efecto 3D / Relieve */
-        text-shadow: 2px 2px 0px #000, 4px 4px 0px rgba(0,0,0,0.5);
-        /* Borde Metálico */
         border: 2px solid #555;
-        border-radius: 10px;
-        /* Luz Dinámica (brillo moviéndose) */
-        position: relative;
-        overflow: hidden;
-        margin: 20px 0;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        transform: translateZ(60px);
+        font-family: sans-serif;
     }
 
-    .papiweb-branding::after {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(to bottom right, rgba(255,255,255,0) 40%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 60%);
-        animation: shine 4s infinite linear;
-        pointer-events: none;
+    .main-text {
+        font-size: 3em;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        text-shadow: 2px 2px 0px #000;
     }
 
-    @keyframes shine {
-        from { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
-        to { transform: translateX(50%) translateY(50%) rotate(45deg); }
+    .sub-text {
+        font-size: 1.5em;
+        font-weight: 300;
+        text-transform: lowercase;
+        margin-top: 10px;
+        color: #aaa;
     }
 </style>
 
-<div class="papiweb-branding">
-    Papiweb desarrollos informáticos
+<div class="papiweb-container">
+    <div class="papiweb-card">
+        <div class="papiweb-branding">
+            <div class="main-text">PAPIWEB</div>
+            <div class="sub-text">desarrollos informáticos</div>
+        </div>
+    </div>
 </div>
+<script>
+    // Parallax hover effect
+    const card = document.querySelector('.papiweb-card');
+    document.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const x = (window.innerWidth / 2 - clientX) / 20;
+        const y = (window.innerHeight / 2 - clientY) / 20;
+        card.style.transform = `rotateY(${-x}deg) rotateX(${y}deg)`;
+    });
+</script>
 
 </body>
 </html>
